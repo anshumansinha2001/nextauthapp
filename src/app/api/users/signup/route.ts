@@ -10,8 +10,6 @@ export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json(); //here we add await because it takes time unlike expressjs
     const { username, email, password } = reqBody;
-    // validation
-    console.log("signupPOST::", reqBody);
 
     // Check if user already exists
     const user = await User.findOne({ email });
@@ -39,13 +37,10 @@ export async function POST(request: NextRequest) {
     // Send verification email
     await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
 
-    // ensure that the password field is excluded before responding
-    const userWithoutPassword = { ...savedUser, password: undefined };
-
     return NextResponse.json({
       message: "User created successfully",
       success: true,
-      userWithoutPassword,
+      savedUser,
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

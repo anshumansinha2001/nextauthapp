@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export async function connectDB() {
   try {
     // here '!' this make sure this would be string since we are using typescript
-    mongoose.connect(process.env.MONGO_URI!);
+    await mongoose.connect(process.env.MONGO_URI!);
     const connection = mongoose.connection;
     connection.on("connected", () => {
       console.log(`Successfully conected to MongoDB`);
