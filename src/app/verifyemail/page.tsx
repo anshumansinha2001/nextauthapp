@@ -31,13 +31,13 @@ export default function VerifyEmailPage() {
     // const urlToken: any = query.token;
 
     setToken(urlToken || "");
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     if (token.length > 0) {
       verifyUserEmail();
     }
-  }, [token]);
+  }, [token, verifyUserEmail]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
