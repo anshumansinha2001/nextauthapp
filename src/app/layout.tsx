@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next Auth by Anshuman",
+  title: "NextJS Auth by Anshuman",
   description:
     "Created by Anshuman Sinha, setup backend & frontend for Next.js",
 };
