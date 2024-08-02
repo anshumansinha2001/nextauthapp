@@ -3,7 +3,6 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import defaultDP from "@/assets/Default_pfp.jpg";
 
 export default function ProfilePage() {
   const [data, setData]: any = useState("nothing");
@@ -17,7 +16,12 @@ export default function ProfilePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <div className="flex flex-col items-center justify-center">
-        <Image width={70} src={defaultDP} alt="pfp" />
+        <Image
+          width={70}
+          height={60}
+          src="https://avatar.iran.liara.run/public"
+          alt="pfp"
+        />
         <h1 className="my-4">
           {data != "nothing"
             ? "Hi, " + data.username.toUpperCase()

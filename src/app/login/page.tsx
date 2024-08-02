@@ -24,8 +24,8 @@ export default function LoginPage() {
       setLoading(true);
       const response = await axios.post("/api/users/login", user);
       console.log("Login success", response.data);
-      toast.success("Login success!");
       router.push("/");
+      toast.success("Login success!");
     } catch (error: any) {
       console.log("Login failed", error);
       toast.error(error.response.data.error);
@@ -46,7 +46,7 @@ export default function LoginPage() {
     <div className="flex flex-col items-center justify-center min-h-screen p-2">
       <div className="flex flex-col w-full sm:w-96 border rounded-xl p-4">
         <h1 className="text-xl text-center leading-10">
-          {loading ? "Processing..." : "Login to the Profile"}
+          {loading ? "Please wait..." : "Login Profile"}
         </h1>
         <hr />
         <div className="flex flex-col py-4">
@@ -54,7 +54,7 @@ export default function LoginPage() {
           <input
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
             id="email"
-            type="text"
+            type="email"
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             placeholder="email"

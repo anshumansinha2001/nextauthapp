@@ -25,8 +25,8 @@ export default function SignupPage() {
       setLoading(true);
       const response = await axios.post("/api/users/signup", user);
       console.log("Signup success", response.data);
-      toast.success("New user created!");
       router.push("/");
+      toast.success("New user created!");
     } catch (error: any) {
       console.log("Signup failed", error);
       toast.error(error.response.data.error);
@@ -51,7 +51,7 @@ export default function SignupPage() {
     <div className="flex flex-col items-center justify-center min-h-screen p-2">
       <div className="flex flex-col w-full sm:w-96 border rounded-xl p-4">
         <h1 className="text-xl text-center leading-10">
-          {loading ? "Processing..." : "Create a new account"}
+          {loading ? "Please wait..." : "Create a new account"}
         </h1>
         <hr />
         <div className="flex flex-col py-4">
@@ -68,7 +68,7 @@ export default function SignupPage() {
           <input
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
             id="email"
-            type="text"
+            type="email"
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             placeholder="email"

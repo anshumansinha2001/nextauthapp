@@ -10,8 +10,8 @@ export default function Home() {
   const logout = async () => {
     try {
       await axios.get("/api/users/logout");
-      toast.success("Logout successful");
       router.push("/login");
+      toast.success("Logout successful");
     } catch (error: any) {
       console.log(error);
       toast.error(error.message);
@@ -72,6 +72,22 @@ export default function Home() {
           </p>
         </Link>
 
+        <div
+          onClick={logout}
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 cursor-pointer"
+          rel="noopener noreferrer"
+        >
+          <p className={`mb-3 text-2xl font-semibold`}>
+            Logout
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </p>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            A way to escape from this website.
+          </p>
+        </div>
+
         <Link
           href="/verifyemail"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
@@ -104,21 +120,6 @@ export default function Home() {
             Anshuman is a Full-Stack Web Developer. see more...
           </p>
         </Link>
-
-        <div
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          rel="noopener noreferrer"
-        >
-          <button onClick={logout} className={`mb-3 text-2xl font-semibold`}>
-            Logout
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </button>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            A way to escape from this website.
-          </p>
-        </div>
       </div>
     </main>
   );
