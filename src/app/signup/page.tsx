@@ -17,7 +17,7 @@ export default function SignupPage() {
 
   const onSignup = async () => {
     if (buttonDisabled) {
-      alert("Please fill the valid details");
+      toast("Please fill the valid details!");
       return;
     }
 
@@ -26,7 +26,7 @@ export default function SignupPage() {
       const response = await axios.post("/api/users/signup", user);
       console.log("Signup success", response.data);
       toast.success("New user created!");
-      router.push("/login");
+      router.push("/");
     } catch (error: any) {
       console.log("Signup failed", error);
       toast.error(error.response.data.error);
@@ -48,7 +48,7 @@ export default function SignupPage() {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen p-2">
       <div className="flex flex-col w-full sm:w-96 border rounded-xl p-4">
         <h1 className="text-xl text-center leading-10">
           {loading ? "Processing..." : "Create a new account"}

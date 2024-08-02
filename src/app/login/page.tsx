@@ -16,7 +16,7 @@ export default function LoginPage() {
 
   const onLogin = async () => {
     if (buttonDisabled) {
-      alert("Please fill the valid credentails");
+      toast("Please fill the valid credentails");
       return;
     }
 
@@ -25,7 +25,7 @@ export default function LoginPage() {
       const response = await axios.post("/api/users/login", user);
       console.log("Login success", response.data);
       toast.success("Login success!");
-      router.push("/profile");
+      router.push("/");
     } catch (error: any) {
       console.log("Login failed", error);
       toast.error(error.response.data.error);
@@ -43,7 +43,7 @@ export default function LoginPage() {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen p-2">
       <div className="flex flex-col w-full sm:w-96 border rounded-xl p-4">
         <h1 className="text-xl text-center leading-10">
           {loading ? "Processing..." : "Login to the Profile"}
