@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Auth 2.0
+
+#### `Registration Screen`
+
+![Project Banner](./public/auth1.png)
+
+#### `Login Screen`
+
+![Project Banner](./public/auth2.png)
 
 ## Getting Started
 

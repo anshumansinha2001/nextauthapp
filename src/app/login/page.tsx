@@ -43,7 +43,7 @@ export default function LoginPage() {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient min-h-screen p-2">
+    <div className="flex flex-col items-center justify-center bg-gradient min-h-screen p-4">
       <div className="flex flex-col w-full sm:w-96 shadow-md bg-white text-black rounded-xl p-4">
         <div className="flex flex-col gap-y-2">
           <h1 className="text-3xl text-center font-bold">🔐 Auth 2.O</h1>
