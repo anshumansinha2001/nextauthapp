@@ -11,7 +11,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       await User.findByIdAndUpdate(userId, {
         verifyToken: hashedToken,
         verifyTokenExpiry: Date.now() + 3600000,
-      });
+      }); //Expire 1 hour from now
     } else if (emailType === "RESET") {
       await User.findByIdAndUpdate(userId, {
         forgotPasswordToken: hashedToken,
